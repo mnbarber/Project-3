@@ -4,6 +4,8 @@ Been There, Done That! is a World of Warcraft character achievement tracker that
 
 ## Wireframes
 
+NOTE: I will not be using the actual WoW logo, I will draw my own over the weekend. Copyright!
+
 Home Page
 
 ![home](https://i.imgur.com/14hJAE5.png)
@@ -85,4 +87,3 @@ As shown in my wireframes, I will have components for the following:
     - Navigation
 
         - on each page with links to saved character listing/home page
-        
