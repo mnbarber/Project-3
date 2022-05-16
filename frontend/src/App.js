@@ -1,20 +1,52 @@
-import React, { useContext } from 'react';
-import { AppContext } from './pages/context-provider';
+import React, { useState } from 'react';
 import Search from './pages/Search';
 import './styles/App.css';
 import Header from './components/Header';
+import AchievementList from './pages/AchievementList';
 import Footer from './components/Footer';
-import Character from './pages/Character';
-// import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const { characterData, error } = useContext(AppContext);
+  const [data, setData] = useState({});
+  const [character, setCharacter] = useState('');
+  const [realm, setRealm] = useState('');
+
+  const findCharacter = async () => {
+    try {
+        const getToken = await fetch('https://us.battle.net/oauth/token', {
+            body: 'grant_type=client_credentials',
+            headers: {
+                Authorization: 'Basic N2ZiYWFlN2ExYWNjNGM0OWE1NmM2YmJhYmQwNTA3ZWI6UGhzNERkTnZmanY3dno1ZUxsYjFDcFFsa1Bvampqalo=', 'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST'
+        });
+        const tokenData = await getToken.json();
+        const tokenBearer = tokenData.access_token;
+        console.log(tokenBearer);
+        const searchResponse = await fetch(`https://us.api.blizzard.com/profile/wow/character/${realm}/${character}/achievements?namespace=profile-us&locale=en_US`, {
+            headers: {
+                Authorization: `Bearer ${tokenBearer}`,
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'GET'
+        });
+        const apiData = await searchResponse.json();
+        console.log(apiData);
+        if(apiData) {
+            setData(apiData);
+        };
+    } catch(error) {
+        console.log(error);
+    };
+};
+
   return (
     <div className="App">
       <Header />
-        <Search />
-        <Character character={characterData} error={error} />
-      <Footer />
+      <Routes>
+        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} />} />
+        <Route path='/achievementslist' element={<AchievementList />} />
+      </Routes>
     </div>
   );
 }

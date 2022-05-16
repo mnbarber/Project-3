@@ -5,14 +5,8 @@ function Header(props) {
         <header>
             <h1>Been There, Done That!</h1>
             <nav className='navbar'>
-                <Link to='/profile'>
-                    <div>Profile</div>
-                </Link>
-                <Link to='/search'>
+                <Link to='/'>
                     <div>Search</div>
-                </Link>
-                <Link to='/listing'>
-                    <div>All Achievements</div>
                 </Link>
             </nav>
         </header>

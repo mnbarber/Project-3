@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const AchievementList = ({ character }) => {
+function AchievementList(props) {
     return (
         <div>
             <h1>{character.name}</h1>
             <div className="achievements-list">
                 <h3>Achievements</h3>
-                {character.achievements.toLocaleString()}
             </div>
         </div>
     )
