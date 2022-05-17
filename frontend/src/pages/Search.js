@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Search(props) {
     const disabled = props.character === '' || props.realm === '';

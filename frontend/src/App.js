@@ -10,6 +10,8 @@ function App() {
   const [data, setData] = useState({});
   const [character, setCharacter] = useState('');
   const [realm, setRealm] = useState('');
+  const [achievements, setAchievements] = useState([]);
+  const [criteria, setCriteria] = useState({});
 
   const findCharacter = async () => {
     try {
@@ -38,14 +40,14 @@ function App() {
     } catch(error) {
         console.log(error);
     };
-};
+  };
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} />} />
-        <Route path='/achievementslist' element={<AchievementList />} />
+        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} achievements={achievements} setAchievements={setAchievements} criteria={criteria} setCriteria={setCriteria} />} />
+        <Route path='/achievementslist' element={<AchievementList data={data} character={character} achievements={achievements} criteria={criteria} setCriteria={setCriteria} />} />
       </Routes>
     </div>
   );

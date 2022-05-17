@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+// import { Link } from "react-router-dom";
 
 function AchievementList(props) {
+    console.log(props.data.achievements[0].achievement.name);
+    const achievementMap = props.data.achievements.map((oneAchievement, acKey) => (
+        (<div key={acKey}>
+            {oneAchievement.achievement.name}
+        </div>)
+    ))
     return (
         <div>
-            <h1>{character.name}</h1>
-            <div className="achievements-list">
-                <h3>Achievements</h3>
-            </div>
+            <h2>{props.data.character.name} of {props.data.character.realm.name}</h2>
+            <h4>Achievements</h4>
+            {achievementMap}
         </div>
     )
 }
