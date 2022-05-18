@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useParams } from 'react-router-dom';
 
 function Achievement(props) {
-    const [achievementData, setAchievementData] = useState({});
-    const achievementID = props.data.achievements.id;
-    console.log(achievementData);
-
-    
+    const [acData, setAcData] = useState({});
 
     const getAchievementInfo = async () => {
         try {
@@ -20,34 +16,36 @@ function Achievement(props) {
             const tokenData = await getToken.json();
             const tokenBearer = tokenData.access_token;
             console.log(tokenBearer);
-            const getAchievement = await fetch(`https://us.api.blizzard.com/data/wow/achievement/${achievementID}?namespace=static-us&locale=en_US`, {
+            const getAchievement = await fetch(`https://us.api.blizzard.com/data/wow/achievement/${props.achievementID}?namespace=static-us&locale=en_US`, {
                 headers: {
                     Authorization: `Bearer ${tokenBearer}`,
                     'content-type': 'application/x-www-form-urlencoded'
                 },
                 method: 'GET'
             });
-            const acData = await getAchievement.json();
-            console.log(acData)
-            if(acData) {
-                setAchievementData(acData);
+            const apiData = await getAchievement.json();
+            console.log(apiData)
+            if(apiData) {
+                setAcData(apiData);
             }
         } catch(error) {
             console.log(error);
         }
     }
-    if(achievementID) {
-        getAchievementInfo();
-    }
+    useEffect(() => {
+        if(props.achievementID) {
+            getAchievementInfo();
+        }
+    }, [props.achievementID])
+    
 
     return (
         <div>
-            <h2>{achievementData.name}</h2>
+            <h2>{acData.name}</h2>
             <hr></hr>
             <ul>
-                <li>{achievementData.description}</li>
-                {/* <li><img src={achievementData.media.key.href} alt='achievement' /></li> */}
-            </ul>
+                <li>{acData.description}</li>
+                </ul>
         </div>
     );
 };
