@@ -12,8 +12,7 @@ function App() {
   const [character, setCharacter] = useState('');
   const [realm, setRealm] = useState('');
   const [achievements, setAchievements] = useState([]);
-  const [acData, setAcData] = useState({});
-  const [id, setID] = useState('');
+  
 
   const findCharacter = async () => {
     try {
@@ -39,18 +38,6 @@ function App() {
         if(apiData) {
             setData(apiData);
         };
-
-        const achievementID = await fetch(`https://us.api.blizzard.com/data/wow/achievement/${id}?namespace=static-us&locale=en_US`, {
-          headers: {
-            Authorization: `Bearer ${tokenBearer}`,
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          method: 'GET'
-        });
-        const acIdData = await achievementID.json();
-        if(acIdData) {
-          setAcData(acIdData);
-        }
     } catch(error) {
         console.log(error);
     };
@@ -60,9 +47,9 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} achievements={achievements} setAchievements={setAchievements} setID={setID} />} />
-        <Route path='/achievementslist' element={<AchievementList data={data} character={character} achievements={achievements} id={id} setID={setID} />} />
-        <Route path='/achievementslist/:id' element={<Achievement acData={acData} setAcData={setAcData} />} />
+        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} achievements={achievements} setAchievements={setAchievements} />} />
+        <Route path='/achievementslist' element={<AchievementList data={data} character={character} achievements={achievements} />} />
+        <Route path='/achievementslist/:id' element={<Achievement data={data} achievements={achievements} />} />
       </Routes>
     </div>
   );
