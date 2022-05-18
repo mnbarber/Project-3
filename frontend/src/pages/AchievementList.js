@@ -1,22 +1,18 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function AchievementList(props) {
-    console.log(props.data.achievements);
-    // const achievementMap = props.data.achievements.map((oneAchievement, acKey) => {
-    //     <div key={acKey}>
-    //         {oneAchievement.achievement.name}
-    //     </div>
-    // })
-
     const achievementMapDONE = (
         <ul>
             {props.data.achievements.map((oneAchievement, acID) => {
+                const id = oneAchievement.id
                 if(oneAchievement.completed_timestamp) {
                     return (
-                        <li key={acID}>
+                        <Link to={`/achievementslist/${id}`} key={acID} >
+                            <li key={acID}>
                             {oneAchievement.achievement.name}
-                        </li>
+                            </li>
+                        </Link>
                     );
                 } else {
                     return;
@@ -28,11 +24,14 @@ function AchievementList(props) {
     const achievementMapIncomplete = (
         <ul>
             {props.data.achievements.map((noAchievement, naID) => {
+                const id = noAchievement.id
                 if(!noAchievement.completed_timestamp) {
                     return (
-                        <li key={naID}>
+                        <Link to={`/achievementslist/${id}`} >
+                            <li key={naID}>
                             {noAchievement.achievement.name}
-                        </li>
+                            </li>
+                        </Link>
                     );
                 } else {
                     return;
