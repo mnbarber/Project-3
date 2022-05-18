@@ -9,27 +9,46 @@ function AchievementList(props) {
     //     </div>
     // })
 
-    const achievementMap = (
+    const achievementMapDONE = (
         <ul>
             {props.data.achievements.map((oneAchievement, acID) => {
                 if(oneAchievement.completed_timestamp) {
                     return (
                         <li key={acID}>
-                            <p>{oneAchievement.achievement.name}</p>
+                            {oneAchievement.achievement.name}
                         </li>
                     );
                 } else {
                     return;
-                }
-            })}
+                };
+            })};
         </ul>
-    )
+    );
+
+    const achievementMapIncomplete = (
+        <ul>
+            {props.data.achievements.map((noAchievement, naID) => {
+                if(!noAchievement.completed_timestamp) {
+                    return (
+                        <li key={naID}>
+                            {noAchievement.achievement.name}
+                        </li>
+                    );
+                } else {
+                    return;
+                };
+            })};
+        </ul>
+    );
 
     return (
         <div>
             <h2>{props.data.character.name} of {props.data.character.realm.name}</h2>
-            <h4>Achievements</h4>
-            {achievementMap}
+            <h4>Completed Achievements</h4>
+            {achievementMapDONE}
+            <hr></hr>
+            <h4>Incomplete Achievements</h4>
+            {achievementMapIncomplete}
         </div>
     )
 }
