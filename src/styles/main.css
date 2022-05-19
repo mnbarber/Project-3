@@ -78,6 +78,10 @@ input:hover {
   color: white;
 }
 
+input:hover::placeholder {
+  color: white;
+}
+
 .character-display {
   background-color: black;
   margin: 5%;
