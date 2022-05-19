@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../styles/main.css'
 
+
 function AchievementList(props) {
 
     const achievementMapDONE = (
@@ -54,8 +55,7 @@ function AchievementList(props) {
             <hr></hr>
             <h4>Incomplete Achievements</h4>
             {achievementMapIncomplete}
-        </div>
-        
+        </div>    
     )
 }
 

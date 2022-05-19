@@ -12,7 +12,7 @@ function Header(props) {
                 <a href='https://www.wowhead.com/'>Wowhead</a>
             <form className='whsearchbar' action='https://www.wowhead.com/search'>
                 <a href="#"></a>
-                <input type='text' name='q' />
+                <input placeholder='search wowhead' type='text' name='q' />
             </form>
             </nav>
         </header>

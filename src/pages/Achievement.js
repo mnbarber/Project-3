@@ -40,7 +40,7 @@ function Achievement(props) {
     
 
     return (
-        <div>
+        <div className="oneAchievement">
             <h2>{acData.name}</h2>
             <hr></hr>
             <ul>
