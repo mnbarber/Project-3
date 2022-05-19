@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { useParams } from 'react-router-dom';
+import '../styles/main.css'
 
 function Achievement(props) {
     const [acData, setAcData] = useState({});

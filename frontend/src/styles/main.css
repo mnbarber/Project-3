@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  background-image: url("https://i.imgur.com/AI6QhRh.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  margin-top: 61.5vh;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+  border-radius: 5%;
+  color: lavender;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+  border-radius: 5%;
+}
+
+.about {
+  background-color: black;
+  color: lavender;
+  margin: 10%;
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+  border-radius: 5%;
+}
+
+a {
+  color: lavender;
+}
+
+.searchform {
+  background-color: black;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  border: 0px;
+  width: max-content;
+  margin-top: 3%;
+}
+
+input {
+  background-color: lavender;
+  padding: 10px 25px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border: 0px;
+  width: max-content;
+  margin: 2%;
+  transition: all 0.3s 0s ease-in-out;
+}
+
+input:hover {
+  transform: scale(1.04, 1);
+  background-color: blueviolet;
+  text-decoration: none;
+  color: white;
+}
+
+.character-display {
+  background-color: black;
+  margin: 5%;
+  padding: 5%;
+  color: lavender;
+}

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Search from './pages/Search';
-import './styles/App.css';
+import './styles/main.css';
 import Header from './components/Header';
 import AchievementList from './pages/AchievementList';
 import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Achievement from './pages/Achievement';
+import Home from './pages/Home';
 
 function App() {
   const [data, setData] = useState({});
@@ -47,10 +48,12 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} achievements={achievements} setAchievements={setAchievements} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/search' element={<Search data={data} findCharacter={findCharacter} setCharacter={setCharacter} setRealm={setRealm} character={character} realm={realm} achievements={achievements} setAchievements={setAchievements} />} />
         <Route path='/achievementslist' element={<AchievementList data={data} character={character} achievements={achievements} achievementID={achievementID} setAchievementID={setAchievementID} />} />
         <Route path='/achievementslist/:id' element={<Achievement data={data} character={character} achievements={achievements} achievementID={achievementID} />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

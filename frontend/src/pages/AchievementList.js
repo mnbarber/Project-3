@@ -1,5 +1,6 @@
-import React, { useState, useParams } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import '../styles/main.css'
 
 function AchievementList(props) {
 
@@ -46,7 +47,7 @@ function AchievementList(props) {
     }
 
     return (
-        <div>
+        <div className="achievement-list">
             <h2>{props.data.character.name} of {props.data.character.realm.name}</h2>
             <h4>Completed Achievements</h4>
             {achievementMapDONE}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import '../styles/main.css'
 
 function Search(props) {
     const disabled = props.character === '' || props.realm === '';
@@ -13,7 +14,7 @@ function Search(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="searchform" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={props.character}
