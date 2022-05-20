@@ -1,89 +1,45 @@
 # Been There, Done That!
 
-Been There, Done That! is a World of Warcraft character achievement tracker that enables a user to pull data on their character in the popular MMO World of Warcraft and show them achievements they have completed, as well as achievements they have not completed and gives helpful links for information on how to complete them. 
+Been There, Done That! is a World of Warcraft character achievement tracker that enables a user to pull data on their character in the popular MMO World of Warcraft and show them achievements they have completed on their characters as well as achievements they have not completed and gives helpful links for information on how to complete them. 
 
-## Wireframes
+### Deployed App
 
-NOTE: I will not be using the actual WoW logo, I will draw my own over the weekend. Copyright!
+[Heroku](https://btdt-achievements.herokuapp.com/)
 
-Home Page
+## Technologies Used
 
-![home](https://i.imgur.com/14hJAE5.png)
+Uses React and JavaScript, and the Battle.Net API(multiple endpoints)- World of Warcraft Character Achievements Summary API as well as the Achievement Info API(two different endpoints) The main website is [here](https://develop.battle.net/). It is required to sign up and request a client ID and secret and then you have to do an initial fetch to request an access token as well.
 
-Character Lookup Form
+## Site Components
 
-![search](https://i.imgur.com/KB96nZG.png)
+Home Page 
 
-Achievement Listing(can also save character to profile)
+![home](https://i.imgur.com/94HmhU1.png)
 
-![list](https://i.imgur.com/DqdYRRd.png)
+Search Page
 
-Single Achievement Info
+![search](https://i.imgur.com/TOkeOBQ.png)
 
-![show](https://i.imgur.com/daYFokk.png)
+w/Search Results
 
-Saved Characters Page
+![results](https://i.imgur.com/jSxm0XM.png)
 
-![profile](https://i.imgur.com/ZtY5h2U.png)
+Achievement List Page
 
-## API
+![list](https://i.imgur.com/Oof16kT.png)
 
-I will be using the Battle.net World of Warcraft Character Achievements Summary API. The main website is [here](https://develop.battle.net/). I signed up and acquired a client ID and secret and used postman to do a couple get requests with my character names and a friend's character to make sure it worked and it does.
+Single Achievement Page
 
-Pull Request 1
+![single](https://i.imgur.com/psgUrMo.png)
 
-![pull-1](https://i.imgur.com/M54hldr.png)
+## Getting Started
 
-Pull Request 2
+The deployed app link is [here](https://btdt-achievements.herokuapp.com/), simply click on the 'search' link in the navigation bar. Enter in your character name and realm name and press submit. It will load your character's name and achievement count. Click the name and it will list all achievements completed and incomplete. Click any achievement and it will show you the achievement requirements in a separate page. 
 
-![pull-2](https://i.imgur.com/0OJif10.png)
+## Future Updates
 
-Note the different numbers in "total_quantity" for each request, because they're different characters!
+I will be adding a feature that allows a user to login with their Battle.Net account and that will pull up all their characters and their achievements with that. 
 
-I'll be using the data to display the following:
-    - total quantity
-    - achievement name
-    - completed timestamp
-    - description of achievement
+## Contribution Guidelines
 
-## Components
-
-As shown in my wireframes, I will have components for the following:
-
-    - Home Page
-
-        - sign in/log in buttons leading to a user auth page on sign up or a log in page 
-
-    - Character Search Form
-
-        - form for inputting character info to send to API
-
-    - Achievement Listing
-
-        - uses input to show characters list of achievements completed/incomplete
-
-        - will be limited to 25 per page
-
-        - each achievement will link to a separate page showing detailed data on that specific achievement
-
-        - save button to save that character data to your profile
-
-    - Achievement Show Page
-
-        - detailed data of achievement
-
-            - name
-
-            - date completed
-
-            - description
-
-        - STRETCH- also links to another website with helpful tips on how to complete achievements
-
-    - Saved Character Listing
-
-        - page listing each character you have saved to your profile, in turn linking to that character's achievement listing page
-
-    - Navigation
-
-        - on each page with links to saved character listing/home page
+Feel free to leave comments here with any suggestions, bugs, and if you'd like to fork and clone and make your own changes feel free as well! 

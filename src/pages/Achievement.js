@@ -15,7 +15,6 @@ function Achievement(props) {
             });
             const tokenData = await getToken.json();
             const tokenBearer = tokenData.access_token;
-            console.log(tokenBearer);
             const getAchievement = await fetch(`https://us.api.blizzard.com/data/wow/achievement/${props.achievementID}?namespace=static-us&locale=en_US`, {
                 headers: {
                     Authorization: `Bearer ${tokenBearer}`,
@@ -24,7 +23,6 @@ function Achievement(props) {
                 method: 'GET'
             });
             const apiData = await getAchievement.json();
-            console.log(apiData)
             if(apiData) {
                 setAcData(apiData);
             }

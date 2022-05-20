@@ -26,7 +26,6 @@ function App() {
         });
         const tokenData = await getToken.json();
         const tokenBearer = tokenData.access_token;
-        console.log(tokenBearer);
         const searchResponse = await fetch(`https://us.api.blizzard.com/profile/wow/character/${realm}/${character}/achievements?namespace=profile-us&locale=en_US`, {
             headers: {
                 Authorization: `Bearer ${tokenBearer}`,
@@ -35,7 +34,6 @@ function App() {
             method: 'GET'
         });
         const apiData = await searchResponse.json();
-        console.log(apiData);
         if(apiData) {
             setData(apiData);
         };
